@@ -1,11 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model;
 
 import java.sql.*;
-import java.sql.PreparedStatement;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,6 +43,89 @@ public abstract class DAO {
         }
         return rs;
     }
+    
+    //Create Table SQLite
+    protected final boolean createTable(){
+        try{
+            PreparedStatement stmt;
+            
+            //Tabela Cliente
+            stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS cliente (\n"
+                    + "id INTEGER PRIMARY KEY, \n"
+                    + "nome VARCHAR, \n"
+                    + "telefone VARCHAR,\n"
+                    +"endereco VARCHAR,\n"
+                    +"cep VARCHAR,\n"                    
+                    +"email VARCHAR);\n");
+            executeUpdate(stmt);
+            
+            //Tabela Animal
+            stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS animal (\n"
+                    + "id INTEGER PRIMARY KEY, \n"
+                    + "nome VARCHAR, \n"
+                    + "data_nascimento VARCHAR,\n"
+                    +"sexo VARCHAR,\n"
+                    +"sintomas VARCHAR,\n"
+                    +"idCliente INT, \n"
+                    + "idEspecie INT);\n");  
+            executeUpdate(stmt);
+                    
+             //Tabela Consulta
+            stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS consulta (\n"
+                    + "id INTEGER PRIMARY KEY, \n"
+                    + "data VARCHAR, \n"
+                    + "hora VARCHAR, \n"
+                    + "idAnimal INT, \n"
+                    + "idVet INT, \n"
+                    + "idCliente INT, \n"
+                    + "idTratamento INT);\n");  
+            executeUpdate(stmt);
+            
+             //Tabela Especie
+            stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS especie (\n"
+                    + "id INTEGER PRIMARY KEY, \n"
+                    + "nome VARCHAR;\n");  
+            executeUpdate(stmt);
+
+             //Tabela Exame
+            stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS exame (\n"
+                    + "id INTEGER PRIMARY KEY, \n"
+                    + "tipo VARCHAR, \n"
+                    + "data VARCHAR, \n"
+                    + "hora TEXT"
+                    + "idAnimal INT, \n"
+                    + "idVet INT, \n"
+                    + "idCliente INT);\n"); 
+            executeUpdate(stmt);
+            
+            //Tabela Tratamento
+            stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS tratamento (\n"
+                    + "id INTEGER PRIMARY KEY, \n"
+                    + "nome VARCHAR, \n"
+                    + "consultas_realizadas INTEGER, \n"
+                    + "total_consultas INTEGER, \n"
+                    + "idAnimal INT, \n"
+                    + "idVet INT, \n"
+                    + "idCliente INT);\n"); 
+            executeUpdate(stmt);
+            
+            //Tabela Veterinario
+            stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS veterinario (\n"
+                    + "id INTEGER PRIMARY KEY, \n"
+                    + "nome VARCHAR, \n"
+                    + "telefone VARCHAR);\n"); 
+            executeUpdate(stmt);
+            
+            // Elemento vazio para especie:
+            stmt = DAO.getConnection().prepareStatement("INSERT OR IGNORE INTO especie (id, nome) VALUES (1, 'Cachorro')");
+            executeUpdate(stmt);
+            return true;
+            
+        }catch(SQLException ex){
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return false;
+    }
     protected int executeUpdate(PreparedStatement queryStatement) throws SQLException {
         int update;
         update = queryStatement.executeUpdate();
@@ -74,72 +153,5 @@ public abstract class DAO {
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
         }
-    }
-    
-    protected final boolean createTable(){
-        try{
-            PreparedStatement stmt;
-            
-            //Tabela Cliente
-            stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS cliente (\n"
-                    + "id INTEGER PRIMARY KEY, \n"
-                    + "nome VARCHAR, \n"
-                    + "telefone VARCHAR,\n"
-                    +"endereco VARCHAR,\n"
-                    +"cep VARCHAR,\n"                    
-                    +"email VARCHAR);\n");
-            executeUpdate(stmt);
-            
-            //Tabela Animal
-            stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS animal (\n"
-                    + "id INTEGER PRIMARY KEY, \n"
-                    + "nome VARCHAR, \n"
-                    + "data_nascimento TEXT,\n"
-                    +"sexo VARCHAR,\n"
-                    +"sintomas VARCHAR,\n"
-                    + "id_especie INT);\n");  
-            executeUpdate(stmt);
-                    
-             //Tabela Consulta
-            stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS consulta (\n"
-                    + "id INTEGER PRIMARY KEY, \n"
-                    + "data VARCHAR, \n"
-                    + "hora TEXT);\n");  
-            executeUpdate(stmt);
-            
-             //Tabela Consulta
-            stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS especie (\n"
-                    + "id INTEGER PRIMARY KEY, \n"
-                    + "nome VARCHAR);\n");  
-            executeUpdate(stmt);
-
-             //Tabela Exame
-            stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS exame (\n"
-                    + "id INTEGER PRIMARY KEY, \n"
-                    + "tipo VARCHAR, \n"
-                    + "data VARCHAR, \n"
-                    + "hora TEXT);\n"); 
-            executeUpdate(stmt);
-            
-            //Tabela Tratamento
-            stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS tratamento (\n"
-                    + "id INTEGER PRIMARY KEY, \n"
-                    + "nome VARCHAR, \n"
-                    + "consultas_realizadas INTEGER, \n"
-                    + "total_consultas INTEGER);\n"); 
-            executeUpdate(stmt);
-            
-            //Tabela Veterinario
-            stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS veterinario (\n"
-                    + "id INTEGER PRIMARY KEY, \n"
-                    + "nome VARCHAR, \n"
-                    + "telefone VARCHAR);\n"); 
-            executeUpdate(stmt);
-            return true;
-            
-        }catch(SQLException ex){
-            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    return false;
     }
 }

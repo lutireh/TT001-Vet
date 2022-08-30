@@ -1,7 +1,6 @@
 
 package model;
 
-import java.util.Calendar;
 
 /**
  *
@@ -10,13 +9,13 @@ import java.util.Calendar;
 public class Exame {
     private int id;
     private String tipo;
-    private Calendar data;
-    private Calendar hora;
+    private String data;
+    private String hora;
     private int idAnimal;
     private int idVet;
     private int idCliente;
 
-    public Exame(int id, String tipo, Calendar data, Calendar hora, int idAnimal, int idVet, int idCliente) {
+    public Exame(int id, String tipo, String data, String hora, int idAnimal, int idVet, int idCliente) {
         this.id = id;
         this.tipo = tipo;
         this.data = data;
@@ -42,19 +41,19 @@ public class Exame {
         this.tipo = tipo;
     }
 
-    public Calendar getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Calendar data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public Calendar getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Calendar hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
     

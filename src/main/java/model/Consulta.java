@@ -1,10 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model;
 
-import java.util.Calendar;
 
 /**
  *
@@ -12,14 +8,14 @@ import java.util.Calendar;
  */
 public class Consulta {
   private int id;
-  private Calendar data;
-  private Calendar hora;
+  private String data;
+  private String hora;
   private int idAnimal;
   private int idVet;
   private int idCliente;
   private int idTratamento;
 
-    public Consulta(int id, Calendar data, Calendar hora, int idAnimal, int idVet, int idCliente, int idTratamento) {
+    public Consulta(int id, String  data, String  hora, int idAnimal, int idVet, int idCliente, int idTratamento) {
         this.id = id;
         this.data = data;
         this.hora = hora;
@@ -37,19 +33,19 @@ public class Consulta {
         this.id = id;
     }
 
-    public Calendar getData() {
+    public String  getData() {
         return data;
     }
 
-    public void setData(Calendar data) {
+    public void setData(String  data) {
         this.data = data;
     }
 
-    public Calendar getHora() {
+    public String  getHora() {
         return hora;
     }
 
-    public void setHora(Calendar hora) {
+    public void setHora(String  hora) {
         this.hora = hora;
     }
     public int getIdAnimal() {

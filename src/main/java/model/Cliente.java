@@ -13,14 +13,16 @@ public class Cliente {
     private int id;
     private String nome;
     private String telefone;
+    private String endereco;
     private String cep;
     private String email;
     private final List animais;
     
-    public Cliente(int id, String nome, String telefone, String cep, String email) {
+    public Cliente(int id, String nome, String telefone, String endereco, String cep, String email) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
+        this.endereco = endereco;
         this.cep = cep;
         this.email = email;
         this.animais = new ArrayList<Animal>();
@@ -49,7 +51,15 @@ public class Cliente {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+    
+    public String getEndereco() {
+        return endereco;
+    }
 
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+    
     public String getCep() {
         return cep;
     }
@@ -79,7 +89,7 @@ public class Cliente {
     
     @Override
     public String toString() {
-        String desc = "Cliente{" + "nome= " + nome + ",telefone " + telefone + ", CEP " + cep + "email " + email+"}";
+        String desc = "Cliente{" + "nome= " + nome + ",telefone " + telefone + ",endereco "+ endereco+ ", CEP " + cep + "email " + email+"}";
         return desc + "\nAnimais{" + animais.toString()+"\n}";
     }
 }

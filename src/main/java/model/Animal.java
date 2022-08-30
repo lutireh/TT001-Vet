@@ -1,7 +1,6 @@
 
 package model;
 
-import java.util.Calendar;
 
 /**
  *
@@ -10,17 +9,19 @@ import java.util.Calendar;
 public class Animal {
     private int id;
     private String nome;
-    private Calendar data_nascimento;
-    private char sexo;
+    private String data_nascimento;
+    private String sexo;
     private String sintomas;
+    private int idCliente;
     private int idEspecie;
 
-    public Animal(int id, String nome, Calendar data_nascimento, char sexo, String sintomas, int idEspecie) {
+    public Animal(int id, String nome, String data_nascimento, String sexo, String sintomas, int idCliente, int idEspecie) {
         this.id = id;
         this.nome = nome;
         this.data_nascimento = data_nascimento;
         this.sexo = sexo;
         this.sintomas = sintomas;
+        this.idCliente = idCliente;
         this.idEspecie = idEspecie;
     }
 
@@ -40,19 +41,19 @@ public class Animal {
         this.nome = nome;
     }
 
-    public Calendar getData_nascimento() {
+    public String getData_nascimento() {
         return data_nascimento;
     }
 
-    public void setData_nascimento(Calendar data_nascimento) {
+    public void setData_nascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
     
@@ -63,6 +64,14 @@ public class Animal {
     public void setSintomas(String sintomas) {
         this.sintomas= sintomas;
     } 
+    
+     public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
     
     public int getIdEspecie() {
         return idEspecie;

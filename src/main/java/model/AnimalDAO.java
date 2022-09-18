@@ -31,15 +31,14 @@ public class AnimalDAO extends DAO{
         try{
             PreparedStatement pstm;
             pstm = DAO.getConnection().prepareStatement("INSERT INTO animal"
-            +" (id, nome, data_nascimento, sexo, sintomas,id Cliente, idEspecie)"
-            + "VALUES (?,?,?,?,?,?,?)");
-            pstm.setInt(1,id);
-            pstm.setString(2,nome);
-            pstm.setString(3,data_nascimento);
-            pstm.setString(4,sexo);
-            pstm.setString(5,sintomas);
-            pstm.setInt(6,idCliente);
-            pstm.setInt(7,idEspecie);
+            +" (nome, data_nascimento, sexo, sintomas,id Cliente, idEspecie)"
+            + "VALUES (?,?,?,?,?,?)");
+            pstm.setString(1,nome);
+            pstm.setString(2,data_nascimento);
+            pstm.setString(3,sexo);
+            pstm.setString(4,sintomas);
+            pstm.setInt(5,idCliente);
+            pstm.setInt(6,idEspecie);
             executeUpdate(pstm);
                     
         }catch (SQLException e){

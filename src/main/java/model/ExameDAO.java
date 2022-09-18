@@ -29,14 +29,13 @@ public class ExameDAO extends DAO{
     public Exame create(int id, String tipo, String data, String hora, int idAnimal, int idVet, int idCliente) {
         try {
             PreparedStatement pstm;
-            pstm = DAO.getConnection().prepareStatement("INSERT INTO exame (id,tipo,data,hora,idAnimal,idVet,idCliente) VALUES (?,?,?,?,?,?,?)");
-            pstm.setInt(1, id);
-            pstm.setString(2,tipo);
-            pstm.setString(3,data);
-            pstm.setString(4,hora);
-            pstm.setInt(5, idAnimal);
-            pstm.setInt(6, idVet);
-            pstm.setInt(7, idCliente);
+            pstm = DAO.getConnection().prepareStatement("INSERT INTO exame (tipo,data,hora,idAnimal,idVet,idCliente) VALUES (?,?,?,?,?,?)");
+            pstm.setString(1,tipo);
+            pstm.setString(2,data);
+            pstm.setString(3,hora);
+            pstm.setInt(4, idAnimal);
+            pstm.setInt(5, idVet);
+            pstm.setInt(6, idCliente);
             executeUpdate(pstm);
 
         } catch (SQLException e) {

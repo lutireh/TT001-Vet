@@ -30,15 +30,14 @@ public class ConsultaDAO extends DAO{
         try{
             PreparedStatement pstm;
             pstm = DAO.getConnection().prepareStatement("INSERT INTO consulta"
-            +" (id, nome, data, hora, idAnimal, idVet, id Cliente, idEspecie)"
-            + "VALUES (?,?,?,?,?,?,?)");
-            pstm.setInt(1,id);
-            pstm.setString(2,data);
-            pstm.setString(3,hora);
-            pstm.setInt(4,idAnimal);
-            pstm.setInt(5,idVet);
-            pstm.setInt(6,idCliente);
-            pstm.setInt(7,idTratamento);
+            +" (nome, data, hora, idAnimal, idVet, id Cliente, idEspecie)"
+            + "VALUES (?,?,?,?,?,?)");
+            pstm.setString(1,data);
+            pstm.setString(2,hora);
+            pstm.setInt(3,idAnimal);
+            pstm.setInt(4,idVet);
+            pstm.setInt(5,idCliente);
+            pstm.setInt(6,idTratamento);
             executeUpdate(pstm);
                     
         }catch (SQLException e){

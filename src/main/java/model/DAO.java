@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  * @author Luiza Rehbein
  */
 public abstract class DAO {
-    public static final String DBURL = "jdbc:sqlite:vet2021.db";
+    public static final String DBURL = "jdbc:sqlite:vet2022.db";
     private static Connection con;
     protected static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
    
@@ -84,7 +84,7 @@ public abstract class DAO {
              //Tabela Especie
             stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS especie (\n"
                     + "id INTEGER PRIMARY KEY, \n"
-                    + "nome VARCHAR;\n");  
+                    + "nome VARCHAR);\n");  
             executeUpdate(stmt);
 
              //Tabela Exame

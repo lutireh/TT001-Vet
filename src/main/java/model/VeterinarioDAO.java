@@ -28,10 +28,9 @@ public class VeterinarioDAO extends DAO{
         try {
             PreparedStatement pstm;
             pstm = DAO.getConnection().prepareStatement("INSERT INTO vet"
-                    + " (id,nome,telefone) VALUES (?,?,?)");
-            pstm.setInt(1,id);
-            pstm.setString(2, nome);
-            pstm.setString(3, telefone);
+                    + " (nome,telefone) VALUES (?,?)");
+            pstm.setString(1, nome);
+            pstm.setString(2, telefone);
             executeUpdate(pstm);
 
         } catch (SQLException e) {

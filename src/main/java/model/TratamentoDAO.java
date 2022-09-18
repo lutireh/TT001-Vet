@@ -29,14 +29,13 @@ public class TratamentoDAO extends DAO{
         try {
             PreparedStatement pstm;
             pstm = DAO.getConnection().prepareStatement("INSERT INTO tratamento"
-                    + " (id,nome,consultas_realizadas,total_consultas,idAnimal,idVet,idCLiente) VALUES (?,?,?,?,?,?,?)");
-            pstm.setInt(1, id);
-            pstm.setString(2, nome);
-            pstm.setInt(3, consultas_realizadas);
-            pstm.setInt(4, total_consultas);
-            pstm.setInt(5, idAnimal);
-            pstm.setInt(6, idVet);
-            pstm.setInt(7, idCliente);
+                    + " (nome,consultas_realizadas,total_consultas,idAnimal,idVet,idCLiente) VALUES (?,?,?,?,?,?)");
+            pstm.setString(1, nome);
+            pstm.setInt(2, consultas_realizadas);
+            pstm.setInt(3, total_consultas);
+            pstm.setInt(4, idAnimal);
+            pstm.setInt(5, idVet);
+            pstm.setInt(6, idCliente);
             executeUpdate(pstm);
 
         } catch (SQLException e) {

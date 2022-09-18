@@ -32,9 +32,8 @@ import java.util.logging.Logger;
     public Especie create(int id, String nome) {
         try {
             PreparedStatement pstm;
-            pstm = DAO.getConnection().prepareStatement("INSERT INTO especie (id,nome) VALUES (?,?)");
-            pstm.setInt(1, id);
-            pstm.setString(2, nome);
+            pstm = DAO.getConnection().prepareStatement("INSERT INTO especie (id,nome) VALUES (?)");
+            pstm.setString(1, nome);
             executeUpdate(pstm);
 
         } catch (SQLException e) {

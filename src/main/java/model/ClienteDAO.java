@@ -27,18 +27,17 @@ public class ClienteDAO extends DAO{
         return(instance == null ? (instance = new ClienteDAO()) : instance);
     }
     
-    public Cliente create(int id, String nome, String telefone, String endereco, String cep, String email){
+    public Cliente create(String nome, String telefone, String endereco, String cep, String email){
         try{
             PreparedStatement pstm;
             pstm = DAO.getConnection().prepareStatement("INSERT INTO cliente"
-            +"(id, nome, telefone, endereco, cep, email)"
-            + "VALUES (?,?,?,?,?,?)");
-            pstm.setInt(1,id);
-            pstm.setString(2,nome);
-            pstm.setString(3,telefone);
-            pstm.setString(4,endereco);
-            pstm.setString(5,cep);
-            pstm.setString(6,email);
+            +"(nome, telefone, endereco, cep, email)"
+            + "VALUES (?,?,?,?,?)");
+            pstm.setString(1,nome);
+            pstm.setString(2,telefone);
+            pstm.setString(3,endereco);
+            pstm.setString(4,cep);
+            pstm.setString(5,email);
             executeUpdate(pstm);
         }catch(SQLException e){
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, e);

@@ -4,17 +4,26 @@
  */
 package view;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Luiza Rehbein
  */
-public class Tratamento extends javax.swing.JFrame {
-
+public class TratamentoCadastro extends javax.swing.JFrame {
+    private void initMyComponents(){
+        jTextField6.setText("");
+        jTextField7.setText("");
+        jTextField8.setText("");
+    }
     /**
      * Creates new form Tratamento
      */
-    public Tratamento() {
+    public TratamentoCadastro() {
         initComponents();
+        this.initMyComponents();
+         setLocationRelativeTo(null);
+         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -39,8 +48,6 @@ public class Tratamento extends javax.swing.JFrame {
         jComboBox6 = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         jComboBox7 = new javax.swing.JComboBox<>();
-        jLabel14 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<>();
         jTextField8 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -48,17 +55,28 @@ public class Tratamento extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
+        jMenu14 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenu12 = new javax.swing.JMenu();
+        jMenu15 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        jMenu18 = new javax.swing.JMenu();
+        jMenu16 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
+        jMenu17 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
+        jMenu10 = new javax.swing.JMenu();
+        jMenu19 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
+        jMenu13 = new javax.swing.JMenu();
+        jMenu20 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel7.setBackground(new java.awt.Color(204, 204, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Consulta");
+        jLabel7.setText("Tratamento");
 
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,10 +109,6 @@ public class Tratamento extends javax.swing.JFrame {
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel14.setText("Tratamento");
-
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField8ActionPerformed(evt);
@@ -113,20 +127,14 @@ public class Tratamento extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(8, 8, 8))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jComboBox7, 0, 113, Short.MAX_VALUE)
                             .addComponent(jComboBox4, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox6, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox8, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jComboBox6, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
@@ -178,10 +186,7 @@ public class Tratamento extends javax.swing.JFrame {
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))))
                 .addGap(4, 4, 4)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14)
-                    .addComponent(jButton2))
+                .addComponent(jButton2)
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
@@ -206,30 +211,127 @@ public class Tratamento extends javax.swing.JFrame {
         jMenuBar1.setAlignmentX(2.0F);
 
         jMenu7.setText("Início");
+        jMenu7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu7MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu7);
 
         jMenu1.setText("Cliente");
 
         jMenu8.setText("Cadastrar");
+        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu8MouseClicked(evt);
+            }
+        });
         jMenu1.add(jMenu8);
+
+        jMenu14.setText("Consultar");
+        jMenu14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu14MouseClicked(evt);
+            }
+        });
+        jMenu1.add(jMenu14);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Animal");
+
+        jMenu12.setText("Cadastrar");
+        jMenu12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu12MouseClicked(evt);
+            }
+        });
+        jMenu2.add(jMenu12);
+
+        jMenu15.setText("Consultar");
+        jMenu15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu15MouseClicked(evt);
+            }
+        });
+        jMenu2.add(jMenu15);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Veterinário");
+
+        jMenu18.setText("Cadastrar");
+        jMenu18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu18MouseClicked(evt);
+            }
+        });
+        jMenu3.add(jMenu18);
+
+        jMenu16.setText("Consultar");
+        jMenu3.add(jMenu16);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Consulta");
 
-        jMenu5.setText("Tratamento");
-        jMenu4.add(jMenu5);
+        jMenu9.setText("Cadastrar");
+        jMenu9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu9MouseClicked(evt);
+            }
+        });
+        jMenu4.add(jMenu9);
 
-        jMenu6.setText("Exame");
-        jMenu4.add(jMenu6);
+        jMenu17.setText("Consultar");
+        jMenu17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu17MouseClicked(evt);
+            }
+        });
+        jMenu4.add(jMenu17);
 
         jMenuBar1.add(jMenu4);
+
+        jMenu5.setText("Tratamento");
+
+        jMenu10.setText("Cadastrar");
+        jMenu10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu10MouseClicked(evt);
+            }
+        });
+        jMenu5.add(jMenu10);
+
+        jMenu19.setText("Consultar");
+        jMenu19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu19MouseClicked(evt);
+            }
+        });
+        jMenu5.add(jMenu19);
+
+        jMenuBar1.add(jMenu5);
+
+        jMenu6.setText("Exame");
+
+        jMenu13.setText("Cadastrar");
+        jMenu13.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jMenu13MouseDragged(evt);
+            }
+        });
+        jMenu6.add(jMenu13);
+
+        jMenu20.setText("Consultar");
+        jMenu20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu20MouseClicked(evt);
+            }
+        });
+        jMenu6.add(jMenu20);
+
+        jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
 
@@ -269,6 +371,66 @@ public class Tratamento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField8ActionPerformed
 
+    private void jMenu7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu7MouseClicked
+        Principal principal = new Principal();
+       principal.show();
+    }//GEN-LAST:event_jMenu7MouseClicked
+
+    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
+       ClienteCadastro cliente = new ClienteCadastro(); 
+        cliente.show();
+    }//GEN-LAST:event_jMenu8MouseClicked
+
+    private void jMenu14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu14MouseClicked
+        Cliente cliente = new Cliente(); 
+        cliente.show();
+    }//GEN-LAST:event_jMenu14MouseClicked
+
+    private void jMenu12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu12MouseClicked
+        AnimalCadastro animal = new AnimalCadastro();
+        animal.show();
+    }//GEN-LAST:event_jMenu12MouseClicked
+
+    private void jMenu15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu15MouseClicked
+        Animal animal= new Animal();
+        animal.show();
+    }//GEN-LAST:event_jMenu15MouseClicked
+
+    private void jMenu18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu18MouseClicked
+       VeterinarioCadastro vet = new VeterinarioCadastro ();
+        vet.show();
+    }//GEN-LAST:event_jMenu18MouseClicked
+
+    private void jMenu9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu9MouseClicked
+         Consulta consulta = new Consulta();
+        consulta.show();
+    }//GEN-LAST:event_jMenu9MouseClicked
+
+    private void jMenu17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu17MouseClicked
+        ConsultaCadastro cadastro = new ConsultaCadastro();
+        cadastro.show();
+    }//GEN-LAST:event_jMenu17MouseClicked
+
+    private void jMenu10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu10MouseClicked
+         TratamentoCadastro trat = new TratamentoCadastro();
+        trat.show();
+    }//GEN-LAST:event_jMenu10MouseClicked
+
+    private void jMenu19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu19MouseClicked
+       Tratamento trat = new Tratamento();
+        trat.show();
+    }//GEN-LAST:event_jMenu19MouseClicked
+
+    private void jMenu13MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu13MouseDragged
+       ExameCadastro exame = new ExameCadastro();
+       exame.show();
+    }//GEN-LAST:event_jMenu13MouseDragged
+
+    private void jMenu20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu20MouseClicked
+       Exame exame = new Exame();
+        exame.show();
+    }//GEN-LAST:event_jMenu20MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -286,20 +448,23 @@ public class Tratamento extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tratamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TratamentoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tratamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TratamentoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tratamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TratamentoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tratamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TratamentoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tratamento().setVisible(true);
+                new TratamentoCadastro().setVisible(true);
             }
         });
     }
@@ -309,23 +474,32 @@ public class Tratamento extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu12;
+    private javax.swing.JMenu jMenu13;
+    private javax.swing.JMenu jMenu14;
+    private javax.swing.JMenu jMenu15;
+    private javax.swing.JMenu jMenu16;
+    private javax.swing.JMenu jMenu17;
+    private javax.swing.JMenu jMenu18;
+    private javax.swing.JMenu jMenu19;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu20;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

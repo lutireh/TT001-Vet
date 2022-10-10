@@ -50,9 +50,9 @@ public class VeterinarioDAO extends DAO{
         return veterinario;
     }
 
-    public List retrieve(String sql) {
+    public List retrieve(String query) {
         List<Veterinario> veterinarios = new ArrayList();
-        ResultSet rs = getResultSet(sql);
+        ResultSet rs = getResultSet(query);
 
         try {
             while (rs.next()) {
@@ -66,7 +66,7 @@ public class VeterinarioDAO extends DAO{
 
     public Veterinario retrieveById(int id) {
         List<Veterinario> veterinarios = this.retrieve("SELECT * FROM "
-                + "vet WHERE id = " + id);
+                + "veterinario WHERE id = " + id);
         return (veterinarios.isEmpty() ? null : veterinarios.get(0));
     }
 
@@ -75,14 +75,14 @@ public class VeterinarioDAO extends DAO{
     }
 
     public List retrieveAll() {
-        return this.retrieve("SELECT * FROM vet");
+        return this.retrieve("SELECT * FROM veterinario");
     }
 
     public void update(Veterinario veterinario) {
         PreparedStatement pstm;
 
         try {
-            pstm = VeterinarioDAO.getConnection().prepareStatement("UPDATE vet "
+            pstm = VeterinarioDAO.getConnection().prepareStatement("UPDATE veterinario "
                     + "SET id=?, nome=?, telefone = ? WHERE id=?");
             pstm.setInt(1, veterinario.getId());
             pstm.setString(2, veterinario.getNome());
@@ -96,7 +96,7 @@ public class VeterinarioDAO extends DAO{
     public void delete(Veterinario veterinario) {
         PreparedStatement pstm;
         try {
-            pstm = VeterinarioDAO.getConnection().prepareStatement("DELETE FROM vet WHERE id = ?");
+            pstm = VeterinarioDAO.getConnection().prepareStatement("DELETE FROM veterinario WHERE id = ?");
             pstm.setInt(1, veterinario.getId());
             executeUpdate(pstm);
 

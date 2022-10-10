@@ -4,17 +4,25 @@
  */
 package view;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Luiza Rehbein
  */
 public class Especie extends javax.swing.JFrame {
 
+     private void initMyComponents(){
+        jTextField6.setText("");
+    }
     /**
      * Creates new form Especie
      */
     public Especie() {
         initComponents();
+        this.initMyComponents();
+         setLocationRelativeTo(null);
+         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -26,21 +34,193 @@ public class Especie extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel4 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu7 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        jMenu14 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu12 = new javax.swing.JMenu();
+        jMenu15 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu18 = new javax.swing.JMenu();
+        jMenu16 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
+        jMenu17 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu10 = new javax.swing.JMenu();
+        jMenu19 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu13 = new javax.swing.JMenu();
+        jMenu20 = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Espécie", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Light", 0, 14))); // NOI18N
+        jPanel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jPanel4.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 397, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jLabel7.setBackground(new java.awt.Color(204, 204, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Cadastro de Espécie");
+
+        jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField6.setText("Nome Espécie");
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Nome da Espécie");
+
+        jButton2.setBackground(new java.awt.Color(204, 204, 255));
+        jButton2.setText("Cadastrar");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(167, 167, 167)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jButton2)
+                .addGap(29, 29, 29))
+        );
+
+        jMenuBar1.setBackground(new java.awt.Color(153, 153, 255));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jMenuBar1.setAlignmentX(2.0F);
+
+        jMenu7.setText("Início");
+        jMenuBar1.add(jMenu7);
+
+        jMenu1.setText("Cliente");
+
+        jMenu8.setText("Cadastrar");
+        jMenu1.add(jMenu8);
+
+        jMenu14.setText("Consultar");
+        jMenu1.add(jMenu14);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Animal");
+
+        jMenu12.setText("Cadastrar");
+        jMenu2.add(jMenu12);
+
+        jMenu15.setText("Consultar");
+        jMenu2.add(jMenu15);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Veterinário");
+
+        jMenu18.setText("Cadastrar");
+        jMenu3.add(jMenu18);
+
+        jMenu16.setText("Consultar");
+        jMenu3.add(jMenu16);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Consulta");
+
+        jMenu9.setText("Cadastrar");
+        jMenu4.add(jMenu9);
+
+        jMenu17.setText("Consultar");
+        jMenu4.add(jMenu17);
+
+        jMenuBar1.add(jMenu4);
+
+        jMenu5.setText("Tratamento");
+
+        jMenu10.setText("Cadastrar");
+        jMenu5.add(jMenu10);
+
+        jMenu19.setText("Consultar");
+        jMenu5.add(jMenu19);
+
+        jMenuBar1.add(jMenu5);
+
+        jMenu6.setText("Exame");
+
+        jMenu13.setText("Cadastrar");
+        jMenu6.add(jMenu13);
+
+        jMenu20.setText("Consultar");
+        jMenu6.add(jMenu20);
+
+        jMenuBar1.add(jMenu6);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+      // TODO add your handling code here:
+    }                                        
+                                  
 
     /**
      * @param args the command line arguments
@@ -78,5 +258,31 @@ public class Especie extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu12;
+    private javax.swing.JMenu jMenu13;
+    private javax.swing.JMenu jMenu14;
+    private javax.swing.JMenu jMenu15;
+    private javax.swing.JMenu jMenu16;
+    private javax.swing.JMenu jMenu17;
+    private javax.swing.JMenu jMenu18;
+    private javax.swing.JMenu jMenu19;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu20;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }

@@ -26,11 +26,11 @@ public class ConsultaDAO extends DAO{
        return (instance == null ? (instance = new ConsultaDAO()) : instance);
     }
     
-    public Consulta create(int id, String nome, String data, String hora, int idAnimal, int idVet, int idCliente, int idTratamento){
+    public Consulta create(int id, String data, String hora, int idAnimal, int idVet, int idCliente, int idTratamento){
         try{
             PreparedStatement pstm;
             pstm = DAO.getConnection().prepareStatement("INSERT INTO consulta"
-            +" (nome, data, hora, idAnimal, idVet, id Cliente, idEspecie)"
+            +" (data, hora, idAnimal, idVet, id Cliente, idTratamento)"
             + "VALUES (?,?,?,?,?,?)");
             pstm.setString(1,data);
             pstm.setString(2,hora);

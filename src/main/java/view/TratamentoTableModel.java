@@ -18,7 +18,7 @@ import model.TratamentoDAO;
 public class TratamentoTableModel extends GenericTableModel {
 
     public TratamentoTableModel(List vDados) {
-        super(vDados, new String[]{"nome", "consultas_realizadas", "total_consultas", "animal","veterinario","cliente"});
+        super(vDados, new String[]{"tipo", "consultas_realizadas", "total_consultas", "animal","veterinario","cliente"});
     }
     
     @Override

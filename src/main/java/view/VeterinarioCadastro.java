@@ -4,19 +4,25 @@
  */
 package view;
 
+import controller.Controller;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Luiza Rehbein
  */
 public class VeterinarioCadastro extends javax.swing.JFrame {
-
+  private void initMyComponents(){
+        jTextField6.setText("");
+        jTextField7.setText("");
+    }
     /**
      * Creates new form CadastroVeterinario
      */
     public VeterinarioCadastro() {
         initComponents();
+        this.initMyComponents();
          setLocationRelativeTo(null);
          setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
@@ -66,6 +72,11 @@ public class VeterinarioCadastro extends javax.swing.JFrame {
         jLabel7.setText("Cadastro de Veterinário");
 
         jTextField6.setText("Nome");
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Nome");
 
@@ -80,6 +91,11 @@ public class VeterinarioCadastro extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(204, 204, 255));
         jButton2.setText("Cadastrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -95,14 +111,14 @@ public class VeterinarioCadastro extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jButton2))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
+                                .addGap(14, 14, 14)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jTextField6))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jTextField7)))))
                         .addGap(10, 10, 10)))
@@ -369,6 +385,21 @@ public class VeterinarioCadastro extends javax.swing.JFrame {
         exame.show();
     }//GEN-LAST:event_jMenu20MouseClicked
 
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        model.Veterinario vet = Controller.criarVeterinario(jTextField6.getText(), jTextField7.getText());
+        if (vet != null){
+        LimpaCampos();
+            JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar","Erro",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -403,6 +434,10 @@ public class VeterinarioCadastro extends javax.swing.JFrame {
                 new VeterinarioCadastro().setVisible(true);
             }
         });
+    }
+    private void LimpaCampos(){
+        jTextField6.setText("");
+        jTextField7.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

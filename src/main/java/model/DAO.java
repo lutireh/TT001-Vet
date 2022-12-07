@@ -92,7 +92,7 @@ public abstract class DAO {
                     + "id INTEGER PRIMARY KEY, \n"
                     + "tipo VARCHAR, \n"
                     + "data VARCHAR, \n"
-                    + "hora TEXT"
+                    + "hora TEXT, \n"
                     + "idAnimal INT, \n"
                     + "idVet INT, \n"
                     + "idCliente INT);\n"); 

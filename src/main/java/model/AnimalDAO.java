@@ -27,11 +27,11 @@ public class AnimalDAO extends DAO{
         return (instance == null ? (instance = new AnimalDAO()) : instance);
     }
     
-    public Animal create(int id, String nome, String data_nascimento, String sexo, String sintomas, int idCliente, int idEspecie){
+    public Animal create(String nome, String data_nascimento, String sexo, String sintomas, int idCliente, int idEspecie){
         try{
             PreparedStatement pstm;
             pstm = DAO.getConnection().prepareStatement("INSERT INTO animal"
-            +" (nome, data_nascimento, sexo, sintomas,id Cliente, idEspecie)"
+            +" (nome, data_nascimento, sexo, sintomas, idCliente, idEspecie)"
             + "VALUES (?,?,?,?,?,?)");
             pstm.setString(1,nome);
             pstm.setString(2,data_nascimento);
@@ -86,28 +86,22 @@ public class AnimalDAO extends DAO{
         return (animais.isEmpty() ? null : animais.get(0));
     }
 
-    public List<Animal> retrieveByClientId(int idCliente) {
-        List<Animal> animais = this.retrieve("SELECT * FROM animal where id_cliente = " + idCliente);
-
-        return (animais.isEmpty() ? null : animais);
-    }
-    public List retrieveBySimilarName(String nome,int id) {
-        return this.retrieve("SELECT * FROM animal WHERE nome LIKE '%" + nome + "%' AND id_especie = "+id);
+    public List retrieveBySimilarName(String nome) {
+        return this.retrieve("SELECT * FROM animal WHERE nome LIKE '%" + nome + "%'");
     }
 
     public void update(Animal animal) {
         PreparedStatement pstm;
         try {
-            pstm = DAO.getConnection().prepareStatement("UPDATE animal SET id=?, nome=?, data_nascimento=?,"
+            pstm = DAO.getConnection().prepareStatement("UPDATE animal SET nome=?, data_nascimento=?,"
                     + "sexo=?, sintomas=?, idCliente=?, idEspecie=? WHERE id=?");
-            pstm.setInt(1, animal.getId());
-            pstm.setString(2, animal.getNome());
-            pstm.setString(3, animal.getData_nascimento());
-            pstm.setString(4, animal.getSexo());
-            pstm.setString(5, animal.getSintomas());
-            pstm.setInt(6, animal.getIdCliente());
-            pstm.setInt(7, animal.getIdEspecie());
-            
+            pstm.setString(1, animal.getNome());
+            pstm.setString(2, animal.getData_nascimento());
+            pstm.setString(3, animal.getSexo());
+            pstm.setString(4, animal.getSintomas());
+            pstm.setInt(5, animal.getIdCliente());
+            pstm.setInt(6, animal.getIdEspecie());
+            pstm.setInt(7, animal.getId());
             executeUpdate(pstm);
 
         } catch (SQLException e) {
@@ -127,11 +121,4 @@ public class AnimalDAO extends DAO{
         }
     }
     
-    public List<Consulta> getLastAppointments(int id){
-            return ConsultaDAO.getInstance().retrieve("SELECT * "
-                    + "FROM consulta "
-                    + "WHERE id_animal = "+id
-                    + " LIMIT 5");
-            
-    }
 }

@@ -24,10 +24,10 @@ public class VeterinarioDAO extends DAO{
         return (instance == null ? (instance = new VeterinarioDAO()) : instance);
     }
 
-    public Veterinario create(int id, String nome, String telefone) {
+    public Veterinario create(String nome, String telefone) {
         try {
             PreparedStatement pstm;
-            pstm = DAO.getConnection().prepareStatement("INSERT INTO vet"
+            pstm = DAO.getConnection().prepareStatement("INSERT INTO veterinario"
                     + " (nome,telefone) VALUES (?,?)");
             pstm.setString(1, nome);
             pstm.setString(2, telefone);
@@ -71,7 +71,7 @@ public class VeterinarioDAO extends DAO{
     }
 
     public List retrieveBySimilarName(String nome) {
-        return this.retrieve("SELECT * FROM vet WHERE nome LIKE '%" + nome + "%'");
+        return this.retrieve("SELECT * FROM veterinario WHERE nome LIKE '%" + nome + "%'");
     }
 
     public List retrieveAll() {
@@ -80,13 +80,12 @@ public class VeterinarioDAO extends DAO{
 
     public void update(Veterinario veterinario) {
         PreparedStatement pstm;
-
         try {
-            pstm = VeterinarioDAO.getConnection().prepareStatement("UPDATE veterinario "
-                    + "SET id=?, nome=?, telefone = ? WHERE id=?");
-            pstm.setInt(1, veterinario.getId());
-            pstm.setString(2, veterinario.getNome());
-            pstm.setString(3, veterinario.getTelefone());
+            pstm = DAO.getConnection().prepareStatement("UPDATE veterinario "
+                    + "SET nome=?, telefone=? WHERE id=?");
+            pstm.setString(1, veterinario.getNome());
+            pstm.setString(2, veterinario.getTelefone());
+            pstm.setInt(3, veterinario.getId());
             executeUpdate(pstm);
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());

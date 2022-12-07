@@ -26,7 +26,7 @@ public class ExameDAO extends DAO{
     }
     
     
-    public Exame create(int id, String tipo, String data, String hora, int idAnimal, int idVet, int idCliente) {
+    public Exame create(String tipo, String data, String hora, int idAnimal, int idVet, int idCliente) {
         try {
             PreparedStatement pstm;
             pstm = DAO.getConnection().prepareStatement("INSERT INTO exame (tipo,data,hora,idAnimal,idVet,idCliente) VALUES (?,?,?,?,?,?)");
@@ -48,7 +48,13 @@ public class ExameDAO extends DAO{
     private Exame buildObject(ResultSet rs) {
         Exame exame = null;
         try {
-            exame = new Exame(rs.getInt("id"), rs.getString("tipo"),rs.getString("data"), rs.getString("hora"), rs.getInt("idAnimal"), rs.getInt("idVet"), rs.getInt("idCliente"));
+            exame = new Exame(rs.getInt("id"), 
+                    rs.getString("tipo"),
+                    rs.getString("data"), 
+                    rs.getString("hora"), 
+                    rs.getInt("idAnimal"), 
+                    rs.getInt("idVet"), 
+                    rs.getInt("idCliente"));
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
         }
@@ -77,7 +83,7 @@ public class ExameDAO extends DAO{
     }
     
     public List retrieveByTipo(String tipo){
-        return this.retrieve("SELECT * FROM exame WHERE nome LIKE '%"+tipo+"%'");
+        return this.retrieve("SELECT * FROM exame WHERE tipo LIKE '%" + tipo + "%'");
     }
     
     public List retrieveAll(){
@@ -89,14 +95,14 @@ public class ExameDAO extends DAO{
         PreparedStatement pstm;
         
         try {
-            pstm = ExameDAO.getConnection().prepareStatement("UPDATE exame SET id=?, tipo=?, data=?, hora=?, idAnimal = ?, idVet=?, idCliente=? WHERE id=?");
-            pstm.setInt(1,exame.getId());
-            pstm.setString(2,exame.getTipo());
-            pstm.setString(3,exame.getData());
-            pstm.setString(4,exame.getHora());
-            pstm.setInt(5,exame.getIdAnimal());
-            pstm.setInt(6,exame.getIdVet());
-            pstm.setInt(7,exame.getIdCliente());
+            pstm = ExameDAO.getConnection().prepareStatement("UPDATE exame SET tipo=?, data=?, hora=?, idAnimal = ?, idVet=?, idCliente=? WHERE id=?");
+            pstm.setString(1,exame.getTipo());
+            pstm.setString(2,exame.getData());
+            pstm.setString(3,exame.getHora());
+            pstm.setInt(4,exame.getIdAnimal());
+            pstm.setInt(5,exame.getIdVet());
+            pstm.setInt(6,exame.getIdCliente());
+            pstm.setInt(7,exame.getId());
             executeUpdate(pstm); 
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());

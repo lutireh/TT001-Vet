@@ -50,12 +50,7 @@ public class AnimalTableModel extends GenericTableModel {
             case 1:
                 return animal.getData_nascimento();
             case 2:
-                if (animal.getSexo().equals("m")) 
-                    return "Macho";
-                else if(animal.getSexo().equals("f"))
-                    return "Fêmea";
-                
-                return "";
+                return animal.getSexo();
              case 3:
                 return animal.getSintomas();
              case 4:

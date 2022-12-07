@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  * @author Luiza Rehbein
  */
 public class TratamentoDAO extends DAO{
-     private static TratamentoDAO instance;
+    private static TratamentoDAO instance;
 
     private TratamentoDAO() {
         getConnection();
@@ -24,12 +24,12 @@ public class TratamentoDAO extends DAO{
         return (instance == null ? (instance = new TratamentoDAO()) : instance);
     }
 
-    public Tratamento create(int id, String nome, int consultas_realizadas,
+    public Tratamento create(String nome, int consultas_realizadas,
             int total_consultas, int idAnimal, int idVet, int idCliente) {
         try {
             PreparedStatement pstm;
             pstm = DAO.getConnection().prepareStatement("INSERT INTO tratamento"
-                    + " (nome,consultas_realizadas,total_consultas,idAnimal,idVet,idCLiente) VALUES (?,?,?,?,?,?)");
+                    + " (nome, consultas_realizadas, total_consultas,idAnimal,idVet,idCLiente) VALUES (?,?,?,?,?,?)");
             pstm.setString(1, nome);
             pstm.setInt(2, consultas_realizadas);
             pstm.setInt(3, total_consultas);
@@ -48,30 +48,29 @@ public class TratamentoDAO extends DAO{
     private Tratamento buildObject(ResultSet rs) {
         Tratamento tratamento = null;
         try {
-            tratamento = new Tratamento(rs.getInt("id"), rs.getString("nome"),
-            rs.getInt("consultas_realizadas"),rs.getInt("total_consultas"),rs.getInt("idAnimal"),
-                    rs.getInt("idVet"),rs.getInt("idCliente"));
-
+            tratamento = new Tratamento(rs.getInt("id"), 
+                    rs.getString("nome"),
+                    rs.getInt("consultas_realizadas"),
+                    rs.getInt("total_consultas"),
+                    rs.getInt("idAnimal"),
+                    rs.getInt("idVet"),
+                    rs.getInt("idCliente"));
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
         }
-
         return tratamento;
     }
 
     public List retrieve(String sql) {
         List<Tratamento> tratamentos = new ArrayList();
         ResultSet rs = getResultSet(sql);
-
         try {
             while (rs.next()) {
                 tratamentos.add(buildObject(rs));
             }
-
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
         }
-
         return tratamentos;
     }
 
@@ -79,16 +78,6 @@ public class TratamentoDAO extends DAO{
         List<Tratamento> tratamentos = this.retrieve("SELECT * FROM "
                 + "tratamento WHERE id = " + id);
         return (tratamentos.isEmpty() ? null : tratamentos.get(0));
-    }
-
-    public Tratamento retrieveFirstByAnimalId(int idAnimal) {
-        List<Tratamento> tratamentos = this.retrieve("SELECT * FROM "
-                + "tratamento WHERE idAnimal = " + idAnimal);
-        return (tratamentos.isEmpty() ? null : tratamentos.get(0));
-    }
-
-    public List retrieveAllByAnimalId(int idAnimal) {
-        return this.retrieve("SELECT * FROM tratamento where idAnimal = " + idAnimal);
     }
 
     public List retrieveBySimilarName(String nome) {
@@ -104,15 +93,15 @@ public class TratamentoDAO extends DAO{
 
         try {
             pstm = TratamentoDAO.getConnection().prepareStatement("UPDATE tratamento "
-                    + "SET id=?, nome = ?, consultas_realizadas = ?, "
+                    + "SET nome = ?, consultas_realizadas = ?, "
                     + "total_consultas = ?, IdAnimal = ?, IdVet=?, IdCliente=? WHERE id = ?");
-            pstm.setInt(1, tratamento.getId());
-            pstm.setString(2, tratamento.getNome());
-            pstm.setInt(1, tratamento.getConsultas_realizadas());
-            pstm.setInt(1, tratamento.getTotal_consultas());
-            pstm.setInt(1, tratamento.getIdAnimal());
-            pstm.setInt(1, tratamento.getIdVet());
-            pstm.setInt(1, tratamento.getIdCliente());
+            pstm.setString(1, tratamento.getNome());
+            pstm.setInt(2, tratamento.getConsultas_realizadas());
+            pstm.setInt(3, tratamento.getTotal_consultas());
+            pstm.setInt(4, tratamento.getIdAnimal());
+            pstm.setInt(5, tratamento.getIdVet());
+            pstm.setInt(6, tratamento.getIdCliente());
+            pstm.setInt(7, tratamento.getId());
             executeUpdate(pstm);
 
         } catch (SQLException e) {

@@ -29,10 +29,10 @@ import java.util.logging.Logger;
         return (instance == null ? (instance = new EspecieDAO()) : instance);
     }
 
-    public Especie create(int id, String nome) {
+    public Especie create(String nome) {
         try {
             PreparedStatement pstm;
-            pstm = DAO.getConnection().prepareStatement("INSERT INTO especie (id,nome) VALUES (?)");
+            pstm = DAO.getConnection().prepareStatement("INSERT INTO especie (nome) VALUES (?)");
             pstm.setString(1, nome);
             executeUpdate(pstm);
 
@@ -94,9 +94,9 @@ import java.util.logging.Logger;
         PreparedStatement pstm;
 
         try {
-            pstm = EspecieDAO.getConnection().prepareStatement("UPDATE especie SET id=? ,nome=? WHERE id=?");
-            pstm.setInt(1, especie.getId());
-            pstm.setString(2, especie.getNome());
+            pstm = EspecieDAO.getConnection().prepareStatement("UPDATE especie SET nome=? WHERE id=?");
+            pstm.setString(1, especie.getNome());
+            pstm.setInt(2, especie.getId());
             executeUpdate(pstm);
 
         } catch (SQLException e) {
